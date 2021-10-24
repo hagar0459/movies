@@ -39,34 +39,34 @@ export const FavouritesScreen = ( { navigation } ) =>
     };
     useEffect( () =>
     {
-        if ( GetUserDetailsReducer.payload && !GetUserDetailsReducer.loading )
+        if ( GetUserDetailsReducer?.payload && !GetUserDetailsReducer?.loading )
         {
-            setAccountId( GetUserDetailsReducer.payload )
+            setAccountId( GetUserDetailsReducer?.payload )
         }
-    }, [GetUserDetailsReducer.loading] );
+    }, [GetUserDetailsReducer?.loading] );
     useEffect( () =>
     {
-        if ( CreateSessionReducer.payload && !CreateSessionReducer.loading )
+        if ( CreateSessionReducer?.payload && !CreateSessionReducer?.loading )
         {
-            setSessionId( CreateSessionReducer.payload )
+            setSessionId( CreateSessionReducer?.payload )
         }
-    }, [CreateSessionReducer.loading] );
+    }, [CreateSessionReducer?.loading] );
 
     useEffect( () =>
     {
-        if ( GetFavouriteReducer.payload.length > 0 && currentPage === 1 )
+        if ( GetFavouriteReducer?.payload?.length > 0 && currentPage === 1 )
         {
-            setFavourites( GetFavouriteReducer.payload );
+            setFavourites( GetFavouriteReducer?.payload );
             setLoading( false )
         } else if (
-            GetFavouriteReducer.payload.length > 0
+            GetFavouriteReducer?.payload.length > 0
         )
         {
-            setFavourites( [...favourits, ...GetFavouriteReducer.payload] );
+            setFavourites( [...favourits, ...GetFavouriteReducer?.payload] );
             setLoading( false )
         }
 
-    }, [GetFavouriteReducer.payload] );
+    }, [GetFavouriteReducer?.payload] );
 
 
     const renderFavourite = ( { item, index, }: ListRenderItemInfo<MovieItemType> ) =>

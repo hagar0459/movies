@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import { View,Alert } from 'react-native';
+import { View, Alert } from 'react-native';
 import { AppNavigator } from './navigation/AppNavigator';
 import thunk from 'redux-thunk';
 import reducers from './redux/reducer/reducer';
@@ -24,13 +24,9 @@ export default function App()
   return (
     <Provider store={createStore( reducers, {}, applyMiddleware( thunk ) )}>
       <PersistGate loading={<View />} persistor={persistor}>
-        <AppNavigator >
-        </AppNavigator>
+        <AppNavigator />
       </PersistGate>
     </Provider>
-
-
-
   );
 };
 

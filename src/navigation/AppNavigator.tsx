@@ -5,12 +5,15 @@
 
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
+// import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import SplashScreen from '../screens/SplashScreen'
 import MyTabs from './MyTabs';
 import DetailsScreen from '../screens/DetailsScreen';
 
-const Stack = createSharedElementStackNavigator();
+const Stack = createNativeStackNavigator();
+// const Stack = createSharedElementStackNavigator();
 
 const options = {
     headerBackTitleVisible: false,

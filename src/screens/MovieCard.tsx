@@ -21,6 +21,7 @@ import { styles } from '../../utils/styles';
 
 export const MovieCard: FC<Props> = ( { info, onPress, onUpdateFavourite, index, showFavIcon }: Props ) =>
 {
+    debugger;
     const GetFavouriteReducer = useSelector( state => state.GetFavouriteReducer );
     const GetGenerReducer = useSelector( state => state.GetGenerReducer );
 
@@ -42,11 +43,11 @@ export const MovieCard: FC<Props> = ( { info, onPress, onUpdateFavourite, index,
 
     const getFavouriteState = ( id: number ) =>
     {
-        if ( GetFavouriteReducer.payload && GetFavouriteReducer.payload.length > 0 )
+        if ( GetFavouriteReducer?.payload && GetFavouriteReducer?.payload?.length > 0 )
         {
-            for ( let i = 0; i < GetFavouriteReducer.payload.length; i++ )
+            for ( let i = 0; i < GetFavouriteReducer?.payload?.length; i++ )
             {
-                if ( GetFavouriteReducer.payload[i].id === id )
+                if ( GetFavouriteReducer?.payload[i]?.id === id )
                 {
                     return true
                 }
@@ -66,11 +67,11 @@ export const MovieCard: FC<Props> = ( { info, onPress, onUpdateFavourite, index,
         return (
             <View style={styles.cardContainer} >
                 <View>
-                    <SharedElement id={`item.${ info.id }.image_url`}>
+                    {/* <SharedElement id={`item.${ info.id }.image_url`}> */}
 
-                        <Image source={{ uri: IMAGE_BASE_URL + info.poster_path }}
-                            resizeMode="cover" style={styles.cardImage} />
-                    </SharedElement>
+                    <Image source={{ uri: IMAGE_BASE_URL + info.poster_path }}
+                        resizeMode="cover" style={styles.cardImage} />
+                    {/* </SharedElement> */}
                     {showFavIcon &&
                         <TouchableHighlight
                             underlayColor={Platform.OS === 'ios' ? "transparent" : ''}
@@ -88,18 +89,18 @@ export const MovieCard: FC<Props> = ( { info, onPress, onUpdateFavourite, index,
                         <Text style={styles.language}>{info.original_language}</Text>
                     </View>
                 </View>
-                <SharedElement id={`item.${ info.id }.cardInfo`}>
-                    <View style={{ width: '100%', justifyContent: 'space-between', flexDirection: 'row', marginVertical: 5 }}>
-                        <View style={{ flex: 4 }}>
-                            <Text style={styles.title}>{info.title}</Text>
-                            <Text style={styles.releaseDate}>{info.release_date}</Text>
-                        </View>
-                        <View style={{ flex: 2, marginHorizontal: 10, alignItems: 'center' }}>
-                            <Text style={styles.votes}>{info.vote_average}</Text>
-
-                        </View>
+                {/* <SharedElement id={`item.${ info.id }.cardInfo`}> */}
+                <View style={{ width: '100%', justifyContent: 'space-between', flexDirection: 'row', marginVertical: 5 }}>
+                    <View style={{ flex: 4 }}>
+                        <Text style={styles.title}>{info.title}</Text>
+                        <Text style={styles.releaseDate}>{info.release_date}</Text>
                     </View>
-                </SharedElement>
+                    <View style={{ flex: 2, marginHorizontal: 10, alignItems: 'center' }}>
+                        <Text style={styles.votes}>{info.vote_average}</Text>
+
+                    </View>
+                </View>
+                {/* </SharedElement> */}
             </View>
         );
 

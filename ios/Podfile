@@ -15,6 +15,8 @@ target 'MoviesTask' do
 
   pod 'RNSharedElement', :path => '../node_modules/react-native-shared-element'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-async-storage/async-storage'
+
   target 'MoviesTaskTests' do
     inherit! :complete
     # Pods for testing

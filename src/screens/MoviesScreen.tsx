@@ -31,10 +31,10 @@ export const MoviesScreen: FC = ( { navigation } ) =>
     //load more for movies
     const loadMore = () =>
     {
-        if ( loading || currentPage === GetMoviesReducer.pages )
+        if ( loading || currentPage === GetMoviesReducer?.pages )
         {
             return;
-        } else if ( GetMoviesReducer.payload && GetMoviesReducer.payload.length > 0 )
+        } else if ( GetMoviesReducer?.payload && GetMoviesReducer?.payload?.length > 0 )
         {
             dispatch( GetMoviesListAction( currentPage + 1, '' + sessionId ) )
             setCurrentPage( currentPage + 1 );
@@ -44,11 +44,11 @@ export const MoviesScreen: FC = ( { navigation } ) =>
 
     useEffect( () =>
     {
-        if ( GetUserDetailsReducer.payload && !GetUserDetailsReducer.loading )
+        if ( GetUserDetailsReducer?.payload && !GetUserDetailsReducer?.loading )
         {
-            setAccountId( GetUserDetailsReducer.payload )
+            setAccountId( GetUserDetailsReducer?.payload )
         }
-    }, [GetUserDetailsReducer.loading] );
+    }, [GetUserDetailsReducer?.loading] );
     useEffect( () =>
     {
         const backHandler = BackHandler.addEventListener( 'hardwareBackPress', () => true )
@@ -56,23 +56,23 @@ export const MoviesScreen: FC = ( { navigation } ) =>
     }, [] )
     useEffect( () =>
     {
-        if ( CreateSessionReducer.payload && !CreateSessionReducer.loading )
+        if ( CreateSessionReducer?.payload && !CreateSessionReducer?.loading )
         {
-            setSessionId( CreateSessionReducer.payload )
+            setSessionId( CreateSessionReducer?.payload )
         }
-    }, [CreateSessionReducer.loading] );
+    }, [CreateSessionReducer?.loading] );
     useEffect( () =>
     {
-        if ( GetMoviesReducer.payload.length > 0 && currentPage === 1 )
+        if ( GetMoviesReducer?.payload?.length > 0 && currentPage === 1 )
         {
-            setMovies( GetMoviesReducer.payload );
+            setMovies( GetMoviesReducer?.payload );
             setLoading( false )
-        } else if ( GetMoviesReducer.payload.length > 0 )
+        } else if ( GetMoviesReducer?.payload?.length > 0 )
         {
-            setMovies( [...movies, ...GetMoviesReducer.payload] );
+            setMovies( [...movies, ...GetMoviesReducer?.payload] );
             setLoading( false )
         }
-    }, [GetMoviesReducer.payload] );
+    }, [GetMoviesReducer?.payload] );
 
     const renderCharacter = ( { item, index, }: ListRenderItemInfo<MovieItemType> ) =>
     {
