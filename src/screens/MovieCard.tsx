@@ -106,7 +106,9 @@ export const MovieCard: FC<Props> = ( { info, onPress, onUpdateFavourite, index,
 
     };
     return (
-        <TouchableOpacity style={styles.card}
+        <TouchableOpacity
+            testID={'CardView'}
+            style={styles.card}
             onPress={() =>
             {
                 onPress( info, getGeners( info.genre_ids, GetGenerReducer ) );

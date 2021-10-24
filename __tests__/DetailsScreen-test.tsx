@@ -5,9 +5,8 @@
 import 'react-native';
 import React from 'react';
 import DetailsScreen from '../src/screens/DetailsScreen';
-
-// Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
+
 describe( '<DetailsScreen /> tests', () =>
 {
   it( 'Render the component correctly ', () =>

@@ -73,6 +73,7 @@ const DetailsScreen = ( { navigation, route } ) =>
                             style={{ width: '100%', justifyContent: 'space-between', flexDirection: 'row', padding: 20 }}>
                             <View style={{ flex: 4 }}>
                                 <Text
+                                    testID={'DetailsTitle'}
                                     key={`item.${ item.id }.infoTitle`}
                                     style={styles.title}>{item.title}</Text>
                                 <Text key={`item.${ item.id }.infoRealese`}
@@ -85,14 +86,14 @@ const DetailsScreen = ( { navigation, route } ) =>
                             </View>
                         </View>
                         {/* </SharedElement> */}
-                        <Text key={`item.${ item.id }.infoOverview`}
+                        <Text key={`item.${ item.id }.infoOverview`} testID={'DetailsDescription'}
                             style={styles.overview}>{item.overview}</Text>
                         <View style={styles.tagContainer}>
                             {geners.map( ( item, key ) => (
                                 <View
-                                    key={`item.${ item.id }.tagView`}
+                                    key={`item.${ key }.tagView`}
                                     style={styles.tagItemContainer}>
-                                    <Text key={`item.${ item.id }.tagText`}
+                                    <Text key={`item.${ key }.tagText`}
                                         style={styles.tagItem}>{item}</Text>
                                 </View>
                             ) )}
